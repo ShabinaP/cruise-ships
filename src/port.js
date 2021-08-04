@@ -21,6 +21,7 @@ if(this.ships.length !== 0) {
 }}};
 
 
+
 module.exports = Port, Ship;
 
 
@@ -36,21 +37,3 @@ module.exports = Port, Ship;
 
 
 
-  // const index = this.ships.indexOf(ship)
-  // if(index > 0) {
-   //    this.ships.splice(index, 1)
-  // }
-      
-   
-  
-//}
-
-//this.ships.push(ship)
-//        if(this.ships.indexOf(ship) !== -1){
- //           this.ships.push(ship)
- //       }
-
- // this.ships.pop(ship)
-
-//if(this.ships.length !== 0) {
-  //  this.ships.pop(ship) 

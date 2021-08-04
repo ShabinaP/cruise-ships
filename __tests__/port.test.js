@@ -2,7 +2,8 @@ const Port = require('../src/Port.js')
 const Ship = require('../src/cruise-ships.js')
 
 describe("Port", () => {
-    it("can be instantiated", () => {
+    
+it("can be instantiated", () => {
 
 const newPort = new Port("Liverpool")
 expect(new Port()).toBeInstanceOf(Object)
@@ -33,7 +34,4 @@ it("can remove a ship", () => {
 expect(port.ships).toEqual([titanic])
 
 
-})
-
-
-});
+})});
