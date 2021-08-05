@@ -72,7 +72,7 @@ describe("Ship", () => {
             
         ship.setSail()
         ship.dock()
-        
+
     expect(() => ship.setSail()).toThrowError('End of itinerary reached')
             });
             
@@ -81,6 +81,6 @@ describe("Ship", () => {
             });
             });
         
-    })
+    });
    
 

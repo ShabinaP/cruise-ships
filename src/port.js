@@ -5,11 +5,12 @@ class Port {
         this.name = name;
         this.ships = [];
     };
-   addShip(ship) {
+   
+  addShip(ship) {
     this.ships.push(ship)
    }
 
-   removeShip(ship) {
+  removeShip(ship) {
   this.ships.pop(ship)
   
 }};
