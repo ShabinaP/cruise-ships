@@ -10,64 +10,58 @@ describe("Ship", () => {
        let itinerary;
       
         beforeEach(()=> {
-        dover = new Port ("Dover")
-        calais = new Port ("Calais")
+        dover = {
+            addShip: jest.fn(),
+            removeShip: jest.fn(),
+            name: "Dover",
+            ships: []
+        };
+
+        calais = {
+            addShip: jest.fn(),
+            removeShip: jest.fn(),
+            name: "Calais",
+            ships: []
+        }
         itinerary = new Itinerary([dover, calais])
         ship = new Ship (itinerary)
     
        })
-        it("can be instantiated", () => {
-           // const port = new Port ("Dover");
-            //const itinerary = new Itinerary([port]);
-            //const ship = new Ship(itinerary)
-               expect(ship).toBeInstanceOf(Object)
+     it("can be instantiated", () => {
+     
+        expect(ship).toBeInstanceOf(Ship)
                 });
             it("has a starting port", () => {
-               const port = new Port ("Dover")
-             const itinerary = new Itinerary([port]);
-               //const ship = new Ship(itinerary)
-            
-            expect(ship.currentPort).toBe(port)
+        
+            expect(ship.currentPort).toBe(dover)
             });
             
             it("can set sail", () => {
-                //const dover = new Port ("Dover")
-               //const calais = new Port ("Calais")
-               // const itinerary = new Itinerary([dover, calais]);
-              // const ship = new Ship(itinerary)
+           
                 ship.setSail()
                 expect(ship.currentPort).toBeFalsy()
-                expect(dover.ships).not.toContain(ship);
+                expect(dover.removeShip).toHaveBeenCalledWith(ship)
                 
             });
             
             it("can dock at a different port", () => {
-               // const dover = new Port("Dover")
-               // const calais = new Port("Calais");
-                //const itinerary = new Itinerary([dover, calais])
-               //const ship = new Ship(itinerary)
-                 ship.setSail()
+        
+                ship.setSail()
                 ship.dock(calais);
             expect(ship.currentPort).toBe(calais)
-            expect(calais.ships).toContain(ship)
+            expect(calais.addShip).toHaveBeenCalledWith(ship)
             })
             
             it("can/t set sail further that its itinerary", () => {
-               //const dover = new Port("Dover")
-               //const calais = new Port("Calais")
-               //const itinerary = new Itinerary([dover, calais])
-                //const ship = new Ship(itinerary);
+            
                 ship.setSail()
                 ship.dock()
             expect(() => ship.setSail()).toThrowError('End of itinerary reached')
             })
             
             it("gets added to port on instantiation", () => {
-                //const dover = new Port("Dover")
-              // const itinerary = new Itinerary([dover])
-               // const ship = new Ship (itinerary);
-            
-            expect(dover.ships).toContain(ship)
+              
+            expect(dover.addShip).toHaveBeenCalledWith(ship)
             })
             });
         
