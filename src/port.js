@@ -11,7 +11,8 @@ class Port {
    }
 
   removeShip(ship) {
-  this.ships.pop(ship)
+
+  this.ships = this.ships.filter(shipDocked => shipDocked !== ship)
   
 }};
 
