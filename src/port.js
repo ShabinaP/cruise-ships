@@ -5,26 +5,18 @@ class Port {
         this.name = name;
         this.ships = [];
     };
-addShip(ship) {
+   addShip(ship) {
     this.ships.push(ship)
-    if(this.ships.indexOf(ship) !== -1){
-        this.ships.push(ship)
-     }
-    }
+   }
 
-removeShip(ship) {
+   removeShip(ship) {
   this.ships.pop(ship)
-  this.ships.pop(ship)
-
-if(this.ships.length !== 0) {
-   this.ships.pop(ship) 
-}}};
+  
+}};
 
 
 
 module.exports = Port, Ship;
-
-
 
 
 
